@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Report</title>
+</head>
+<body>
+    <h2>{{ user }} - Report</h2>
+    <p>Below is the summary of albums and songs:</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Album Name</th>
+                <th>Artist</th>
+                <th>User ID</th>
+                <th>Songs</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for album in data %}
+            <tr>
+                <td>{{ album.name }}</td>
+                <td>{{ album.artist }}</td>
+                <td>{{ album.user_id }}</td>
+                <td>
+                    <ul>
+                        {% for song in album.songs %}
+                        <li>
+                            <p class="attribute">Song:</span> <span class="song-name">{{ song.name }}</p> 
+                            <br>
+                            <p class="attribute">Genre:</span> <span class="song-genre">{{ song.Genre }}</p> 
+                            <br>
+                            <p class="attribute">Singer:</span> <span class="song-singer">{{ song.singer }}</p> 
+                            <br>
+                            <p class="attribute">Lyrics:</span> <span class="song-lyrics">{{ song.Lyrics }}</p> 
+                            <br>
+                        </li>
+                        
+                        
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>  
+    <p>Thanks, Team Swar</p>
+</body>
+</html>
